@@ -1,0 +1,14 @@
+extends ../../layout
+
+block content
+   h2(id='title') Delete the project
+   div(class='container' id='cont')
+      form(id='project_delete-form' name='project_delete-form' class='form-horizontal' method="POST" action='')
+         input(id='id' type="hidden" name='id' value=project.id class='form-control')
+         div(class='form-group')
+         div(class='col-md-12') 
+            h5 Do you really want to delete project "#{project.name}" #{project.id}?
+         div(class='form-group')
+         div(class='col-md-12')
+            a(href=`/project/list` class="btn btn-success" id = 'del_btn') No
+            button(type='submit' class='btn btn-danger' id= 'del_btn') Delete

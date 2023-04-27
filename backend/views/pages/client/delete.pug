@@ -1,0 +1,15 @@
+extends ../../layout
+
+block content
+   h2(id='title') Delete the client
+   div(class='container' id='cl_cont')
+      form(id='client_delete-form' name='client_delete-form' class='form-horizontal' method="POST" action='')
+         input(id='id' type="hidden" name='id' value=client.id class='form-control')
+         div(class='form-group')
+         div(class='col-md-12') 
+            h5 Do you really want to delete client "#{client.name}" with budget #{client.budget}$?
+         div(class='form-group')
+         div(class='col-md-12')
+            a(href=`/client/list` class="btn btn-success" id = 'del_btn') No
+            button(type='submit' class='btn btn-danger' id= 'del_btn') Delete
+            

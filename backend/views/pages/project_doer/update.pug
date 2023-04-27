@@ -1,0 +1,26 @@
+extends ../../layout
+
+
+block content
+  h2(id='title') Edit the project doer
+  div(class='container' id='cont')
+    form(id='project_doer_edit-form' name='project_doer_edit-form' class='form-horizontal' method="POST" action='')
+      input(id='id' name='id' value=$fn.getPropOrDefault(newproject_doer, 'id', project_doer.id) type='hidden')
+      div(class='form-group')
+         div(class='col-md-3')
+            label(for='name') Name
+         div(class='col-md-9')
+            input(id='name' name='name' value=$fn.getPropOrDefault(newproject_doer, 'name', project_doer.name) class='form-control')
+         div(class='form-group')
+         div(class='col-md-3')
+            label(for='doer_num') Number of doers
+         div(class='col-md-9')
+            input(id='doer_num' name='doer_num' value=$fn.getPropOrDefault(newproject_doer, 'doer_num', project_doer.doer_num) class='form-control')
+         div(class='form-group')
+         div(class='col-md-3')
+            label(for='experience') Experience
+         div(class='col-md-9')
+            input(id='experience' name='experience' value=$fn.getPropOrDefault(newproject_doer, 'experience', project_doer.experience) class='form-control')
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-info') Edit

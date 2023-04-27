@@ -1,0 +1,32 @@
+extends ../../layout
+
+block content
+   h2(id='title') Add new project
+   div(class='container' id='cont')
+      form(id='project_add-form' name='project_add-form' class='form-horizontal' method="POST" action='')
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='name') Name
+            div(class='col-md-9')
+               input(id='name' name='name' value=$fn.getPropOrDefault(newProject, 'name') class='form-control')
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='description') Description
+            div(class='col-md-9')
+               input(id='description' name='description' value=$fn.getPropOrDefault(newProject, 'description') class='form-control')
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='client_id') Client
+            div(class='col-md-9')
+               <select id='client_id' name='client_id' class='form-select'>
+                  each type in clients
+                     option(value=type.id selected=(type.id == $fn.getPropOrDefault(newProject, 'type', 0))) #{type.name}
+               </select>
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='experience') Experience
+            div(class='col-md-9')
+               input(id='experience' name='experience' value=$fn.getPropOrDefault(newProject, 'experience') class='form-control')
+         div(class='form-group')
+            div(class='col-md-12')
+               button(type='submit' class='btn btn-primary') Create

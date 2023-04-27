@@ -1,0 +1,36 @@
+extends ../../layout
+
+block content
+   h2(id='title') Edit the project in progress
+   div(class='container' id='cont')
+      form(id='progress_edit-form' name='progress_edit-form' class='form-horizontal' method="POST" action='')
+         input(id='id' name='id' value=$fn.getPropOrDefault(newProgress, 'id', progress.id) type='hidden')
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='project_id') Project
+            div(class='col-md-9')
+               <select id='project_id' name='project_id' class='form-select'>
+                  each type in projects
+                     option(value=type.id selected=(type.id == $fn.getPropOrDefault(newProgress, 'type', progress.type))) #{type.name}
+               </select>
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='project_doer_id') Project doer
+            div(class='col-md-9')
+               <select id='project_doer_id' name='project_doer_id' class='form-select'>
+                  each type in project_doers
+                     option(value=type.id selected=(type.id == $fn.getPropOrDefault(newProgress, 'type', 0, progress.doer))) #{type.name}
+               </select>
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='start') Start date
+            div(class='col-md-9')
+               input(id='start' name='start' value=$fn.getPropOrDefault(newProgress, 'start', progress.start.toLocaleDateString("sv-SE")) class='form-control')
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='finish') Finish date
+            div(class='col-md-9')
+               input(id='finish' name='finish' value=$fn.getPropOrDefault(newProgress, 'finish', progress.finish.toLocaleDateString("sv-SE")) class='form-control')
+         div(class='form-group')
+            div(class='col-md-12')
+               button(type='submit' class='btn btn-info') Edit

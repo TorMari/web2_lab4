@@ -1,0 +1,15 @@
+extends ../../layout
+
+block content
+   h2(id='title') Delete the project doer
+   div(class='container' id='cl_cont')
+      form(id='project_doer_delete-form' name='project_doer_delete-form' class='form-horizontal' method="POST" action='')
+         input(id='id' type="hidden" name='id' value=project_doer.id class='form-control')
+         div(class='form-group')
+         div(class='col-md-12') 
+            h5 Do you really want to delete project doer "#{project_doer.name}" #{project_doer.id}?
+         div(class='form-group')
+         div(class='col-md-12')
+            a(href=`/project_doer/list` class="btn btn-success" id = 'del_btn') No
+            button(type='submit' class='btn btn-danger' id= 'del_btn') Delete
+            

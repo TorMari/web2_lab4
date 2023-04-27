@@ -1,0 +1,30 @@
+extends ../../layout
+
+block prepend styles
+  link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+   h2(id='title') Project doers
+   a(href='/project_doer/add' class="btn btn-success") Add
+   div(id='table_div')
+      table(class="table" id='example')
+         thead
+            tr
+               th ID
+               th Name
+               th Number of doers
+               th Experience
+               th Options
+         tbody
+            each type in project_doers
+               tr
+                  td #{type.id}
+                  td #{type.name}
+                  td #{type.doer_num}
+                  td #{type.experience}
+                  td
+                     a(href=`/project_doer/edit/${type.id}` class="btn btn-warning") Edit
+                     a(href=`/project_doer/remove/${type.id}` class="btn btn-danger") Delete
+
+block append scripts
+   script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')

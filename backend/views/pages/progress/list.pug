@@ -1,0 +1,33 @@
+extends ../../layout
+
+block prepend styles
+  link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+   h2(id='title') Projects in progress
+   a(href='/progress/add' class="btn btn-success") Add
+   div(id='table_div')
+      table(class="table" id='example')
+         thead
+            tr
+               th ID
+               th Project 
+               th Project doer
+               th Start date
+               th Finish date
+               th Options
+         tbody
+            each item in progress
+               tr
+                  td #{item.id}
+                  td #{item.type.name } 
+                  td #{item.doer.name } 
+                  td #{item.start.getFullYear()}-#{item.start.getMonth()+1}-#{item.start.getDate()}
+                  td #{item.finish.getFullYear()}-#{item.finish.getMonth()+1}-#{item.finish.getDate()}
+                  td
+                     a(href=`/progress/edit/${item.id}` class="btn btn-warning") Edit
+                     a(href=`/progress/remove/${item.id}` class="btn btn-danger") Delete
+
+
+block append scripts
+   script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')

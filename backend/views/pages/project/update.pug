@@ -1,0 +1,33 @@
+extends ../../layout
+
+block content
+   h2(id='title') Edit the project
+   div(class='container' id='cont')
+      form(id='project_edit-form' name='project_edit-form' class='form-horizontal' method="POST" action='')
+         input(id='id' name='id' value=$fn.getPropOrDefault(newProject, 'id', project.id) type='hidden')
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='name') Name
+            div(class='col-md-9')
+               input(id='name' name='name' value=$fn.getPropOrDefault(newProject, 'name', project.name) class='form-control')
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='description') Description
+            div(class='col-md-9')
+               input(id='description' name='description' value=$fn.getPropOrDefault(newProject, 'description', project.description) class='form-control')
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='client_id') Type
+            div(class='col-md-9')
+               <select id='client_id' name='client_id' class='form-control'>
+                  each type in clients
+                     option(value=type.id selected=(type.id == $fn.getPropOrDefault(newProject, 'type', project.type))) #{type.name}
+               </select>
+         div(class='form-group')
+            div(class='col-md-3')
+               label(for='experience') Experience
+            div(class='col-md-9')
+               input(id='experience' name='experience' value=$fn.getPropOrDefault(newProject, 'experience', project.experience) class='form-control')
+         div(class='form-group')
+            div(class='col-md-12')
+               button(type='submit' class='btn btn-info') Edit

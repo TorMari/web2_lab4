@@ -1,0 +1,19 @@
+extends ../../layout
+
+block content
+   h2(id='title') Add new client
+   div(class='container' id='cont')
+      form(id='client_add-form' name='client_add-form' class='form-horizontal' method="POST" action='')
+         div(class='form-group')
+         div(class='col-md-3')
+            label(for='name') Name
+         div(class='col-md-9')
+            input(id='name' name='name' value=$fn.getPropOrDefault(newclient, 'name') class='form-control')
+         div(class='form-group')
+         div(class='col-md-3')
+            label(for='budget') Budget
+         div(class='col-md-9')
+            input(id='budget' name='budget' value=$fn.getPropOrDefault(newclient, 'budget') class='form-control')
+         div(class='form-group')
+         div(class='col-md-12')
+            button(type='submit' class='btn btn-primary') Create

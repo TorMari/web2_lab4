@@ -1,0 +1,28 @@
+extends ../../layout
+
+block prepend styles
+  link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+   h2(id='title') Clients
+   a(href='/client/add' class="btn btn-success") Add
+   div(id='table_div')
+      table(class="table" id='example')
+         thead
+            tr
+               th ID
+               th Name
+               th Budget
+               th Options
+         tbody
+            each type in clients
+               tr
+                  td #{type.id}
+                  td #{type.name}
+                  td #{type.budget}
+                  td
+                     a(href=`/client/edit/${type.id}` class="btn btn-warning") Edit
+                     a(href=`/client/remove/${type.id}` class="btn btn-danger") Delete
+
+block append scripts
+   script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
