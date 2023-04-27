@@ -1,0 +1,34 @@
+<h2 id="title">Add new project doer</h2>
+<div class="container" id="cont">
+   <form (submit)="createDoer()">
+      <div class="form-group">
+         <div class="col-md-3">
+            <label for="name">Name</label>
+         </div>
+         <div class="col-md-9">
+            <input id="name" name="name" [(ngModel)]="name" class="form-control" />
+         </div>
+      </div>
+      <div class="form-group">
+         <div class="col-md-3">
+            <label for="doer_num">Number of doers</label>
+         </div>
+         <div class="col-md-9">
+            <input id="doer_num" name="doer_num" [(ngModel)]="doer_num" class="form-control" />
+         </div>
+      </div>
+      <div class="form-group">
+         <div class="col-md-3">
+            <label for="experience">Experience</label>
+         </div>
+         <div class="col-md-9">
+            <input id="experience" name="experience" [(ngModel)]="experience" class="form-control" />
+         </div>
+      </div>
+      <div class="form-group">
+         <div class="col-md-12">
+            <button type="button" class="btn btn-primary" type="submit" href="/">Create</button>
+         </div>
+      </div>
+   </form>
+</div>

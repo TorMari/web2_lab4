@@ -1,0 +1,46 @@
+<h2 id="title">Add new project in progress</h2>
+<div class="container" id="cont">
+  <form (submit)="createProgress()">
+    <div class="form-group">
+      <div class="col-md-3">
+        <label for="project_id">Project</label>
+      </div>
+      <div class="col-md-9">
+        <select id="projct" name="project" [(ngModel)]="type" class="form-select">
+          <option *ngFor="let project of projects" [value]="project._id">{{ project.name }}</option>
+        </select>        
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-3">
+        <label for="doer_id">Doer</label>
+      </div>
+      <div class="col-md-9">
+        <select id="doer" name="doer" [(ngModel)]="doer" class="form-select">
+          <option *ngFor="let doer of doers" [value]="doer._id">{{ doer.name }}</option>
+        </select>        
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-3">
+        <label for="start">Start</label>
+      </div>
+      <div class="col-md-9">
+        <input id="start" name="start" [(ngModel)]="start" class="form-control" />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-3">
+        <label for="finish">Finish</label>
+      </div>
+      <div class="col-md-9">
+        <input id="finish" name="finish" [(ngModel)]="finish" class="form-control" />
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </form>
+</div>

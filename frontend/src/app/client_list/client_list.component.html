@@ -1,0 +1,30 @@
+<h2 id='title'>Clients</h2>
+<a href='/client_add' class="btn btn-success">Add</a>
+<div>
+  <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search" style="width: 300px; margin-top: 8px;">
+  <div style="margin-top: -45px; margin-left: 300px;"><button (click)="filterRecords()" class="btn" style="background-color: whitesmoke; margin: 8px">Search</button>
+  <button (click)="clearRecords()" class="btn" style="background-color: rgb(0, 187, 255);">Clear</button></div>
+</div>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Budget</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of filteredRecords">
+        <td>{{ record._id }}</td>
+        <td>{{ record.name }}</td>
+        <td>{{ record.budget }}</td>
+        <td>
+          <button (click)="editClient(record._id)" class="btn btn-warning">Edit</button>
+          <button (click)="deleteClient(record._id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
